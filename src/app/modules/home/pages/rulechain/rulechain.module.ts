@@ -14,17 +14,23 @@
 /// limitations under the License.
 ///
 
-import {BaseData} from '@shared/models/base-data';
-import {TenantId} from '@shared/models/id/tenant-id';
-import {RuleChainId} from '@shared/models/id/rule-chain-id';
-import {RuleNodeId} from '@shared/models/id/rule-node-id';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {SharedModule} from '@shared/shared.module';
+import {RuleChainComponent} from '@modules/home/pages/rulechain/rulechain.component';
+import {RuleChainRoutingModule} from '@modules/home/pages/rulechain/rulechain-routing.module';
 
-export interface RuleChain extends BaseData<RuleChainId> {
-  tenantId: TenantId;
-  name: string;
-  firstRuleNodeId: RuleNodeId;
-  root: boolean;
-  debugMode: boolean;
-  configuration?: any;
-  additionalInfo?: any;
-}
+@NgModule({
+  entryComponents: [
+    RuleChainComponent
+  ],
+  declarations: [
+    RuleChainComponent
+  ],
+  imports: [
+    CommonModule,
+    SharedModule,
+    RuleChainRoutingModule
+  ]
+})
+export class RuleChainModule { }
