@@ -13,6 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+@import '../../../theme';
+
 :host {
   display: flex;
   width: 100%;
@@ -24,9 +26,40 @@
 
   mat-sidenav-container {
     flex: 1;
+    background-image: #{$tb-background-image};
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+  }
+  .frost-glass-sidenav {
+    border-radius: 10px;
+    position: absolute;
+    height: 100%;
+    width:20%;
+    background: inherit;
+    -webkit-filter: blur(45px);
+    -moz-filter: blur(45px);
+    -ms-filter: blur(45px);
+    -o-filter: blur(45px);
+    filter: blur(45px);
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=4, MakeShadow=false);
+  }
+  mat-sidenav::before{
+    position: absolute;
+    width: 250px;
+    height: 100%;
+    -webkit-filter: blur(15px);
+    filter: blur(15px);
+    background-image: #{$tb-background-image};
+    content: "";
+    background-attachment: fixed;
+    background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255, 0.3)), #{$tb-background-image};
   }
   mat-sidenav.tb-site-sidenav {
-    width: 250px;
+    width: 64px;
+    transition: width .5s;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
     @media (max-width:456px) {
       width: calc(100% - 56px);
     }
@@ -34,6 +67,7 @@
       z-index: 2;
       flex-shrink: 0;
       white-space: nowrap;
+      background: rgba(255,255,255,.3);
       .tb-nav-header-toolbar {
         min-height: 64px;
         height: inherit;
@@ -55,10 +89,25 @@
       overflow-y: auto;
       height: inherit;
       padding: 0;
+      background: rgba(255,255,255,.3);
     }
   }
+  mat-sidenav.tb-site-sidenav:hover{
+    width:250px;
+  }
+  //mat-toolbar::before{
+  //  content: '';
+  //  height: 64px;
+  //  width: 100%;
+  //  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255,255,255, 0.3)), #{$tb-background-image};
+  //  position: absolute;
+  //  z-index: -1;
+  //  background-attachment: fixed;
+  //}
   .tb-primary-toolbar {
     z-index: 2;
+    //background: rgba(255,255,255,.3);
+    border-bottom-right-radius: 15px;
     h1 {
       font-size: 24px !important;
       font-weight: 400 !important;
@@ -68,4 +117,5 @@
     overflow: auto;
     position: relative;
   }
+
 }

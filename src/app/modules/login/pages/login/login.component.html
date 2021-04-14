@@ -15,20 +15,27 @@
     limitations under the License.
 
 -->
-<div class="tb-login-content mat-app-background tb-dark" fxFlex fxLayoutAlign="center center">
-  <mat-card style="max-height: 80vh; overflow-y: auto;">
-    <mat-card-content>
+
+
+<div class="tb-login-content" fxFlex fxLayoutAlign="center center">
+  <div class="frost-glass"></div>
+  <mat-card style="padding: 0px; margin: auto">
       <form class="tb-login-form" [formGroup]="loginFormGroup" (ngSubmit)="login()">
         <fieldset [disabled]="isLoading$ | async" fxLayout="column">
           <div fxLayout="column" fxLayoutAlign="start center" style="padding: 15px 0;">
             <tb-logo class="login-logo"></tb-logo>
           </div>
-          <mat-progress-bar color="warn" mode="indeterminate" *ngIf="isLoading$ | async">
+          <mat-card-header style="padding: 20px;">
+            <div mat-card-avatar class="login-panel"></div>
+            <mat-card-title>{{'login.institution' | translate }}</mat-card-title>
+            <mat-card-subtitle>{{'login.welcome'| translate }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-progress-bar  mode="buffer" *ngIf="isLoading$ | async">
           </mat-progress-bar>
           <span style="height: 4px;" *ngIf="!(isLoading$ | async)"></span>
           <div tb-toast fxLayout="column" class="layout-padding">
-            <span style="height: 50px;"></span>
-            <mat-form-field>
+            <span style="height: 20px;"></span>
+            <mat-form-field appearance="outline">
               <mat-label translate>login.username</mat-label>
               <input id="username-input" matInput type="email" autofocus formControlName="username" email required/>
               <mat-icon matPrefix>email</mat-icon>
@@ -36,18 +43,24 @@
                 {{ 'user.invalid-email-format' | translate }}
               </mat-error>
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field appearance="outline">
               <mat-label translate>common.password</mat-label>
               <input id="password-input" matInput type="password" formControlName="password"/>
               <mat-icon matPrefix>lock</mat-icon>
             </mat-form-field>
+
             <div fxLayoutAlign="end center">
               <button class="tb-reset-password" mat-button type="button" routerLink="/login/resetPasswordRequest">{{ 'login.forgot-password' | translate }}
               </button>
             </div>
             <div fxLayout="column" class="tb-action-button">
-              <button mat-raised-button color="accent" [disabled]="(isLoading$ | async)"
-                      type="submit">{{ 'login.login' | translate }}</button>
+              <button class="login-button"  [disabled]="(isLoading$ | async)" type="submit">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                {{ 'login.login' | translate }}
+              </button>
             </div>
             <div class="oauth-container" fxLayout="column" fxLayoutGap="16px" *ngIf="oauth2Clients?.length">
               <div class="container-divider">
@@ -65,6 +78,8 @@
           </div>
         </fieldset>
       </form>
-    </mat-card-content>
   </mat-card>
 </div>
+
+
+

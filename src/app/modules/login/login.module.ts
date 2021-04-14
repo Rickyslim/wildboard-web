@@ -24,6 +24,7 @@ import { ResetPasswordRequestComponent } from '@modules/login/pages/login/reset-
 import { ResetPasswordComponent } from '@modules/login/pages/login/reset-password.component';
 import { CreatePasswordComponent } from '@modules/login/pages/login/create-password.component';
 
+
 @NgModule({
   declarations: [
     LoginComponent,
@@ -34,7 +35,8 @@ import { CreatePasswordComponent } from '@modules/login/pages/login/create-passw
   imports: [
     CommonModule,
     SharedModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+
   ]
 })
 export class LoginModule { }

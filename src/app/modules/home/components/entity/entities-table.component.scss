@@ -14,10 +14,19 @@
  * limitations under the License.
  */
 @import '../../../../../scss/constants';
+@import '../../../../../theme';
 
 :host {
   width: 100%;
   height: 100%;
+  mat-drawer{
+    transform: none;
+    visibility: visible;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background: linear-gradient(rgba(255, 255, 255, 1), rgba(0,0,0, .1)),#{$tb-background-image};
+    background-position: center;
+  }
   .tb-entity-table {
     .tb-entity-table-content {
       width: 100%;

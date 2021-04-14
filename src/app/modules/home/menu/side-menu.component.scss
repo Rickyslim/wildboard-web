@@ -25,6 +25,12 @@
     padding: 0;
     margin-top: 0;
     list-style: none;
+    color: black;
+    li{
+      padding-top: 5px;
+      padding-bottom: 5px;
+
+    }
   }
 
   .tb-side-menu > li {
@@ -61,6 +67,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        padding-left: 10px;
         &.tb-toggle-icon {
           padding-top: 12px;
           padding-bottom: 12px;
